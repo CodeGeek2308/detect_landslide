@@ -7,8 +7,8 @@ from PIL import Image
 import time
 
 # Supabase credentials (hardcoded)
-url = "https://xhlyzfuidcgaviwimyll.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhobHl6ZnVpZGNnYXZpd2lteWxsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM5MjQyNjMsImV4cCI6MjA1OTUwMDI2M30.GukI9P58O0K_tZhk99upaZ7Th5TT8HVHGGUirt17NEw"
+#url = "https://xhlyzfuidcgaviwimyll.supabase.co"
+k#ey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhobHl6ZnVpZGNnYXZpd2lteWxsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM5MjQyNjMsImV4cCI6MjA1OTUwMDI2M30.GukI9P58O0K_tZhk99upaZ7Th5TT8HVHGGUirt17NEw"
 supabase = create_client(url, key)
 
 # Function to get the latest two image filenames (timestamped) from the Supabase bucket
@@ -46,13 +46,13 @@ def compare_images(img1, img2, threshold=25):
     print("🔍 Pixel difference:", non_zero_count)
     return non_zero_count > threshold
 
-# Main loop that runs indefinitely every 5 seconds
-def main_loop(interval_seconds=5):
-    while True:  # Infinite loop to run the checks continuously
+## Main loop that runs indefinitely every 5 seconds
+#def main_loop(interval_seconds=5):
+   # while True:  # Infinite loop to run the checks continuously
         print(f"\n🕒 Checking for landslide...")
         f1, f2 = get_latest_image_urls()
         
-        if f1 and f2:
+       # if f1 and f2:
             img1 = download_image("esp32-uploads", f1)
             img2 = download_image("esp32-uploads", f2)
             
@@ -62,7 +62,7 @@ def main_loop(interval_seconds=5):
                 print("🚨 Landslide Detected!" if landslide else "✅ No landslide.")
         
         # Wait for the specified interval before checking again
-        time.sleep(interval_seconds)
+      #  time.sleep(interval_seconds)
 
 # Run the main loop
 if __name__ == "__main__":
