@@ -46,11 +46,10 @@ def compare_images(img1, img2, threshold=25):
     print("🔍 Pixel difference:", non_zero_count)
     return non_zero_count > threshold
 
-# Main loop that runs every `interval_seconds` for the duration of `duration_minutes`
-def main_loop(duration_minutes=5, interval_seconds=5):
-    total_iterations = (duration_minutes * 60) // interval_seconds
-    for i in range(total_iterations):
-        print(f"\n🕒 Checking for landslide... (Attempt {i + 1})")
+# Main loop that runs indefinitely every 5 seconds
+def main_loop(interval_seconds=5):
+    while True:  # Infinite loop to run the checks continuously
+        print(f"\n🕒 Checking for landslide...")
         f1, f2 = get_latest_image_urls()
         
         if f1 and f2:
