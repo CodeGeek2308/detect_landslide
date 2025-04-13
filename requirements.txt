@@ -2,3 +2,4 @@ supabase
 opencv-python
 Pillow
 requests
+numpy
