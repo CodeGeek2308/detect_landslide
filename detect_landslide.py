@@ -1,4 +1,4 @@
-from supabase import create_client
+#from supabase import create_client
 import cv2
 import numpy as np
 import os
